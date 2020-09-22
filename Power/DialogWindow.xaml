@@ -1,0 +1,83 @@
+﻿<Window x:Class="Power.DialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Power"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Icon="Images/Power.ico"
+        Title="Set Timer" Height="170" Width="310">
+
+    <Grid Background="LightGray">
+        <Grid.Resources>
+            <Style x:Key="fontsize" TargetType="ContentControl">
+                <Setter Property="FontSize" Value="10">
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition Width="70"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+
+            <!--Timer and ComboBoxTimers-->
+            <StackPanel Margin="5 20 0 5" Orientation="Horizontal" VerticalAlignment="Top">
+                <Label Height="30" FontFamily="Arial Rounded MT Bold" Content="Timer:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <ComboBox Name="Options" Margin="5" Width="90" Height="22" SelectionChanged="Options_SelectionChanged">
+                    <ComboBoxItem x:Name="SetNow" Content="Now" IsSelected="True"/>
+                    <ComboBoxItem x:Name="ThirtySeconds" Content="30 Seconds"/>
+                    <ComboBoxItem x:Name="FortyFiveSeconds" Content="45 Seconds"/>
+                    <ComboBoxItem x:Name="OneMinute" Content="1 Minute"/>
+                </ComboBox>
+            </StackPanel>
+
+            <!--CheckBox-->
+            <!-- <Grid>
+                     <CheckBox IsChecked="False" x:Name="CheckBox" Margin="5 5 0 5"
+                                   FontFamily="Arial Rounded MT Bold" Content="Do it myself">
+                     </CheckBox>
+                     </Grid>
+                -->
+
+            <!--Time:-->
+            <StackPanel IsEnabled="{Binding ElementName=CheckBox, Path=IsChecked}" Orientation="Horizontal" Margin="5 5 0 5">
+                <Label Content="Time:" FontFamily="Arial Rounded MT Bold" Height="25"/>
+
+                <TextBox x:Name="hh" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5 0 5 0" Height="25" HorizontalAlignment="Left" Width="25" Text="00" IsEnabled="True" VerticalAlignment="Top" FontWeight="Bold" />
+                <Label Name="colon1" Content=":" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="mm" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5 0 5 0" Height="25" HorizontalAlignment="Left" Width="25" Text="00" IsEnabled="True" VerticalAlignment="Top" FontWeight="Bold"/>
+                <Label x:Name="colon2" Content=":" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="ss" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5 0 5 0" Height="25" HorizontalAlignment="Left" Width="25" Text="00" IsEnabled="True" VerticalAlignment="Top" FontWeight="Bold"/>
+                <!--A.M. & P.M.-->
+                <ComboBox Width="48" Height="25">
+                    <ComboBoxItem  Content="AM" Selector.IsSelected="True"/>
+                    <ComboBoxItem Content="PM"/>
+                </ComboBox>
+            </StackPanel>
+
+            <Button VerticalAlignment="Bottom" Foreground="Red" HorizontalAlignment="Left" Margin="15 05" x:Name="CancelTimer" Click="CancelTimer_Click" Content="Cancel Timer"/>
+
+        </StackPanel>
+
+        <!--Buttons-->
+        <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Bottom">
+
+            <Button FontFamily="Arial Rounded MT Bold" Name="Cancel" Height="25" Click="Cancel_Click" Width="50" Margin="05" Content="Cancel"/>
+            <Button FontFamily="Arial Rounded MT Bold" x:Name="Ok" Height="25" Click="Ok_Click" Width="50" Content="Ok"/>
+
+        </StackPanel>
+    </Grid>
+
+</Window>

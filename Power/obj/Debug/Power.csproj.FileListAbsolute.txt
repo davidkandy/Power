@@ -1,0 +1,17 @@
+C:\Users\david\source\repos\Power\Power\bin\Debug\Power.exe.config
+C:\Users\david\source\repos\Power\Power\bin\Debug\Power.exe
+C:\Users\david\source\repos\Power\Power\bin\Debug\Power.pdb
+C:\Users\david\source\repos\Power\Power\obj\Debug\DialogWindow.g.cs
+C:\Users\david\source\repos\Power\Power\obj\Debug\MainWindow.g.cs
+C:\Users\david\source\repos\Power\Power\obj\Debug\App.g.cs
+C:\Users\david\source\repos\Power\Power\obj\Debug\Power_MarkupCompile.cache
+C:\Users\david\source\repos\Power\Power\obj\Debug\Power_MarkupCompile.lref
+C:\Users\david\source\repos\Power\Power\obj\Debug\DialogWindow.baml
+C:\Users\david\source\repos\Power\Power\obj\Debug\MainWindow.baml
+C:\Users\david\source\repos\Power\Power\obj\Debug\Power.g.resources
+C:\Users\david\source\repos\Power\Power\obj\Debug\Power.Properties.Resources.resources
+C:\Users\david\source\repos\Power\Power\obj\Debug\Power.csproj.GenerateResource.cache
+C:\Users\david\source\repos\Power\Power\obj\Debug\Power.csproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\Power\Power\obj\Debug\Power.exe
+C:\Users\david\source\repos\Power\Power\obj\Debug\Power.pdb
+C:\Users\david\source\repos\Power\Power\obj\Debug\Power.csprojAssemblyReference.cache
