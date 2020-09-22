@@ -32,6 +32,7 @@ namespace Power
         //    Hours = CountdownTime / 3600;
         //    Minutes = (CountdownTime - (Hours * 3600)) / 60;
         //    Seconds = CountdownTime - (Hours * 3600) - (Minutes * 60);
+        //    There's not much to do here again, I am just need a change. 
         //}
 
 
