@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\david\source\repos\Power\Power\App.xaml
-2-1972148117
+41760166199
 
-9-2062354722
+10-1713152494
 13-1505183044
-DialogWindow.xaml;MainWindow.xaml;
+DialogWindow.xaml;MainView.xaml;MainWindow.xaml;TimerView.xaml;
 
 True
 

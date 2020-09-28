@@ -56,7 +56,7 @@ namespace Power
                 switch (value)
                 {
                     case "Now":
-                        DWTimer.Seconds = 2;
+                        DWTimer.Seconds = 1;
                         break;
 
                     case "30 Seconds":

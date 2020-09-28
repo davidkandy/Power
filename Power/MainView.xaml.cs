@@ -1,23 +1,23 @@
-﻿using System;
+﻿using System.Windows.Controls;
+using System.Windows;
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Windows;
 
 namespace Power
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainView : UserControl
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-        /*
         [DllImport("PowrProf.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
         public static extern bool SetSuspendState(bool hiberate, bool forceCritical, bool disableWakeEvent);
 
+        public MainView()
+        {
+            InitializeComponent();
+        }
 
         protected void Shutdown_Click(object sender, RoutedEventArgs e)
         {
@@ -29,7 +29,7 @@ namespace Power
                 Action action = new Action(ShutdownComputer);
                 dialog.DWTimer.Start(action);
             }
-            
+
             //Action action = new Action(() => MessageBox.Show("Timer just went off", "Shutdown"));
             //dialog.DWTimer.Start(action);
 
@@ -44,7 +44,7 @@ namespace Power
                 Action action = new Action(HibernateComputer);
                 dialog.DWTimer.Start(action);
             }
-            
+
 
         }
 
@@ -58,7 +58,7 @@ namespace Power
                 Action action = new Action(RestartComputer);
                 dialog.DWTimer.Start(action);
             }
-            
+
             //Action action = new Action(() => MessageBox.Show("Timer just went off", "Restart"));
             //dialog.DWTimer.Start(action);
         }
@@ -117,6 +117,6 @@ namespace Power
         }
 
         #endregion
-        */
+
     }
 }

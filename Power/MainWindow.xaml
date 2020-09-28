@@ -15,46 +15,6 @@
     </Window.TaskbarItemInfo>
 
     <StackPanel Background="Gray">
-
-        <Menu>
-            <MenuItem Header="_Settings"  FontFamily="Arial Rounded MT Bold">
-                <MenuItem FontFamily="Arial Rounded MT Bold" Header="_Run at Start-Up" x:Name="StartupRun" Click="StartupRun_Click" IsCheckable="True"/>
-                <MenuItem  FontFamily="Arial Rounded MT Bold" Header="_Schedule Start-up command" x:Name="ScheduleStartupCommand" Click="ScheduleStartupCommand_Click" />
-            </MenuItem>
-            <MenuItem  FontFamily="Arial Rounded MT Bold" Header="_About" x:Name="About" Click="About_Click"/>
-        </Menu>
-
-        <Border Padding="5">
-            <GroupBox>
-
-                <GroupBox.Header>
-                    <Label>Schedule Power Options</Label>
-                </GroupBox.Header>
-
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <Button FontSize="{Binding FontSizeSetting, Mode=TwoWay}" FontFamily="Arial Rounded MT Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" x:Name="Shutdown" Height="300" Grid.RowSpan="4" Grid.Column="0" Margin="3" Click="Shutdown_Click">Shutdown</Button>
-
-                    <Button FontSize="{Binding FontSizeSetting, Mode=TwoWay}" FontFamily="Arial Rounded MT Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" x:Name="Hibernate" Grid.Column="1" Width="150" HorizontalAlignment="Left"  Margin="3" Click="Hibernate_Click">Hibernate</Button>
-
-                    <Button FontSize="{Binding FontSizeSetting, Mode=TwoWay}" FontFamily="Arial Rounded MT Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" x:Name="Sleep" Grid.Column="1" Width="150" HorizontalAlignment="Right" Click="Sleep_Click" Margin="3" >Sleep</Button>
-
-                    <Button FontSize="{Binding FontSizeSetting, Mode=TwoWay}" FontFamily="Arial Rounded MT Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" x:Name="Restart" Grid.Column="1" Grid.Row="1" Grid.RowSpan="1" Click="Restart_Click" Margin="3">Restart</Button>
-
-                </Grid>
-
-            </GroupBox>
-
-        </Border>
-
+        <local:MainView/>
     </StackPanel>
 </Window>
