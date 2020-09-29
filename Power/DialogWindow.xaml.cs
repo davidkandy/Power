@@ -77,20 +77,6 @@ namespace Power
                 }
             }
 
-            // Nice work so far...
-            // Interesting you actually did not create a new class in the last code
-            // you wrote?
-            // Isn't this 'DWTimer' the same class that counts down?... Yes
-            // Well, that still works. We can use that.
-            // You need to be like new CountdownTimer(), somewhere though.
-            // Can you do that?...
-            // Done...
-            // Great. Now once we press okay, this dialog is meant to close, 
-            // but you need to set DialogResult to True so that we know that 
-            // the timer has bee Carry on...            //n started.
-            // Now we need to go back to you MainWindow.xaml.cs
-            // Okay
-
         }
     }
 }

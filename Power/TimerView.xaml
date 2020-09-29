@@ -6,7 +6,17 @@
              xmlns:local="clr-namespace:Power"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Width="700" Height="150" Background="White">
+
+        <TextBlock Text="{Binding Hours}" Margin="50 50 0 0" FontSize="50" FontWeight="Bold" FontFamily="{StaticResource Digital}" />
+
+        <Label Content=":" Margin="50 40 0 0" FontWeight="Bold" FontSize="40"/>
+
+        <TextBlock Text="00" Margin="50 50 0 0" FontSize="50" FontWeight="Bold" FontFamily="{StaticResource Digital}" />
+
+        <Label Content=":" Margin="50 40 0 0" FontWeight="Bold" FontSize="40"/>
+        
+        <TextBlock Text="{Binding Seconds}" Margin="50 50 0 0" FontSize="50" FontWeight="Bold" FontFamily="{StaticResource Digital}" />
+    </StackPanel>
 </UserControl>

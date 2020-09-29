@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Power"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <FontFamily x:Key="Digital">pack://application:,,,/Fonts/#digital-7</FontFamily>
     </Application.Resources>
 </Application>

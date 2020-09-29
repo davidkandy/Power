@@ -7,16 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="410" d:DesignWidth="650">
     <Grid>
-        <StackPanel Background="Gray">
-
-            <Menu>
-                <MenuItem Header="_Settings"  FontFamily="Arial Rounded MT Bold">
-                    <MenuItem FontFamily="Arial Rounded MT Bold" Header="_Run at Start-Up" x:Name="StartupRun" Click="StartupRun_Click" IsCheckable="True"/>
-                    <MenuItem  FontFamily="Arial Rounded MT Bold" Header="_Schedule Start-up command" x:Name="ScheduleStartupCommand" Click="ScheduleStartupCommand_Click" />
-                </MenuItem>
-                <MenuItem  FontFamily="Arial Rounded MT Bold" Header="_About" x:Name="About" Click="About_Click"/>
-            </Menu>
-
+        <StackPanel>
+         
             <Border Padding="5">
                 <GroupBox>
 
@@ -24,7 +16,36 @@
                         <Label>Schedule Power Options</Label>
                     </GroupBox.Header>
 
-                    <Grid>
+					<!--
+					Everything apart from MainGrid should be in your MainWindow.xaml
+					That way, we can change only the group of buttons to the timer when the time comes.
+					
+					Can you do that?...
+                    
+                    <Window.TaskbarItemInfo>
+                        <TaskbarItemInfo Description="Power"/>
+                    </Window.TaskbarItemInfo>
+                    
+                    I had some issues trying to get this into the MainView.xaml 
+					Yeah, if you think about it, it says Window.TaskbarItemInfo. You're trying to change a property in you `Window`.
+					So that should stay in your MainWindow.xaml.
+					
+					Can you move everything apart from MainGrid?
+					Do you need help?...
+                    I think so.. Because I'm a bit lost... I thought I'd already moved everything
+                    Or are you talking about the DialogWindow too?
+					
+					Nope. I named the grid below us, MainGrid
+					Now, I noticed you moved everything.
+					That's great and all, but I think you moved a little too much.
+					
+					You moved the Menu too and other stuff I don't think we'll be needing in this UserControl.
+					So the plan is that you keep the MainGrid, but move everything else back.
+					
+					Great not bad so far...
+					--> 
+						
+                    <Grid x:Name="MainGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>

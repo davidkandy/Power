@@ -15,6 +15,37 @@
     </Window.TaskbarItemInfo>
 
     <StackPanel Background="Gray">
-        <local:MainView/>
+        <Menu>
+            <MenuItem Header="_Settings"  FontFamily="Arial Rounded MT Bold">
+                <MenuItem FontFamily="Arial Rounded MT Bold" Header="_Run at Start-Up" x:Name="StartupRun" Click="StartupRun_Click" IsCheckable="True"/>
+                <MenuItem  FontFamily="Arial Rounded MT Bold" Header="_Schedule Start-up command" x:Name="ScheduleStartupCommand" Click="ScheduleStartupCommand_Click" />
+            </MenuItem>
+            <MenuItem  FontFamily="Arial Rounded MT Bold" Header="_About" x:Name="About" Click="About_Click"/>
+        </Menu>
+		
+		<!--
+		So we'll toggle visibility on both views when we deem it necessary.
+        Ok... 
+		Play around for a little bit.
+		I'll be back in a bit.
+        I get the gist 
+        btw.. in runtime, the fonts are reflecting in the app, but it's not showing in the design 
+		
+		It happens sometimes man. The designer can be an ass sometimes.
+		Just ignore it :shrug:...
+		
+		Let's move to our TimerClass.
+        To where?? CountdownTimer.cs
+        Sorry.. I get you now
+		We can make it thread safe an all, so that we can get it working.
+		
+		Lol, all good.
+		-->
+
+		<Grid>
+			<local:MainView x:Name="MainEl" Visibility="Visible" />
+
+			<local:TimerView x:Name="TimerEl" Visibility="Hidden" />
+		</Grid>
     </StackPanel>
 </Window>
