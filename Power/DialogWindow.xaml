@@ -32,14 +32,50 @@
 
         <StackPanel Grid.Column="0">
 
+			<!--  
+			Give it a run...
+            What am I looking for? cause the combobox was empty and I couldn't choose an option
+			well, that's interesting.
+			Change the ItemSource Binding to Capsules
+			Try again...
+            I'm sending a pic on slack 
+			Actually, that's about right.
+			did you read about binding over the weekend? 
+            Nope, I read other stuff (delegates and events)
+			
+			Cool...
+			You need to make time to read about wpf binding though.
+            Will do...
+			Awesome. Watch what I'm about to do...
+			
+			That should fix it
+            Alright, let me try again
+            It shows now 
+			
+			Awesome. Let's go back there and bring it to life then
+			=> DialogWindow.xaml.cs
+			-->
+			
             <!--Timer and ComboBoxTimers-->
             <StackPanel Margin="5 20 0 5" Orientation="Horizontal" VerticalAlignment="Top">
                 <Label Height="30" FontFamily="Arial Rounded MT Bold" Content="Timer:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <ComboBox Name="Options" Margin="5" Width="90" Height="22" SelectionChanged="Options_SelectionChanged">
-                    <ComboBoxItem x:Name="SetNow" Content="Now" IsSelected="True"/>
+                <ComboBox Name="Options" SelectionChanged="Options_SelectionChanged" ItemsSource="{Binding Capsules}" Margin="5" Width="90" Height="22">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<!--
+						Now within this DataTemplate the items are going to be bound to the contents of your TimeCapsule class.
+						Later on, we'll do more lectures on binding.
+						-->
+						
+					        <TextBlock Text="{Binding Name}"/>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+					
+					
+                    <!--<ComboBoxItem x:Name="SetNow" Content="Now" IsSelected="True"/>
                     <ComboBoxItem x:Name="ThirtySeconds" Content="30 Seconds"/>
                     <ComboBoxItem x:Name="FortyFiveSeconds" Content="45 Seconds"/>
-                    <ComboBoxItem x:Name="OneMinute" Content="1 Minute"/>
+                    <ComboBoxItem x:Name="OneMinute" Content="1 Minute"/>-->
                 </ComboBox>
             </StackPanel>
 

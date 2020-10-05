@@ -9,11 +9,11 @@
     
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Width="700" Height="150" Background="White">
 
-        <TextBlock Text="{Binding Hours}" Margin="50 50 0 0" FontSize="50" FontWeight="Bold" FontFamily="{StaticResource Digital}" />
+        <TextBlock Text="{Binding Hours}" Margin="200 50 0 0" FontSize="50" FontWeight="Bold" FontFamily="{StaticResource Digital}" />
 
         <Label Content=":" Margin="50 40 0 0" FontWeight="Bold" FontSize="40"/>
 
-        <TextBlock Text="00" Margin="50 50 0 0" FontSize="50" FontWeight="Bold" FontFamily="{StaticResource Digital}" />
+        <TextBlock Text="{Binding Minutes}" Margin="50 50 0 0" FontSize="50" FontWeight="Bold" FontFamily="{StaticResource Digital}" />
 
         <Label Content=":" Margin="50 40 0 0" FontWeight="Bold" FontSize="40"/>
         

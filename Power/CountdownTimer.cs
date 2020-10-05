@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace Power
 {
@@ -10,11 +11,12 @@ namespace Power
     // Oh, I just did that. No worries.
     public class CountdownTimer : INotifyPropertyChanged
     {
-        #region Public Properties
+        #region Properties
         private int _hours = 0;
         private int _minutes = 0;
         private int _seconds = 0;
-//         //Lol...copy cat...
+
+        //Lol...copy cat...
         // Don't you like typing?...
         // It'll give you good syntax fluency, you know?
         // I get your point tho
@@ -64,7 +66,6 @@ namespace Power
             }
         }
 
-        public int CountdownTime { get; private set; }
 
         // Now, this is the event that comes with INotifyPropertyChanged.
         // Just like the event we created before, it sends notifications
@@ -82,48 +83,63 @@ namespace Power
 
         #region Constructors
         public CountdownTimer() { }
-        public CountdownTimer(int hours, int minute, int seconds)
-        {
-            Hours = hours;
-            Minutes = minute;
-            Seconds = seconds;
-
-            // So to make things Thread safe you need to wrap it in a Task
-            // You can read a little about it.
-            // I read a bit on it.. It said something about putting a private object in a Lock method
-            // Or something like that, Idon't remember exactly
-            // One second, lemme check something.
-           
-            // Okay, so we need to wrap it in a task.
-            // Just watch and see the changes
-
-
-            // Gratefully, we don't need to do anything like that..;
-            // Funny, cuz that's about it.
-            // Are you following?
-            // Yes
-
-            // Awesome. 
-            // Give it a run, lemme think for a bit.
-            // Ok 
-
-            // So I noticed you commented out some of the methods from MainWindow.xaml.cs
-
-            // Yes, they are now in the MainView.cs
-            // Great. I'll head there.
-
-        }
-
-
-
-        //public CountdownTimer(int timeleft)
+        //public CountdownTimer(int hours, int minute, int seconds)
         //{
-        //    CountdownTime = timeleft;
+        //    Hours = hours;
+        //    Minutes = minute;
+        //    Seconds = seconds;
 
-        //    Hours = CountdownTime / 3600;
-        //    Minutes = (CountdownTime - (Hours * 3600)) / 60;
-        //    Seconds = CountdownTime - (Hours * 3600) - (Minutes * 60);
+        //    // So to make things Thread safe you need to wrap it in a Task
+        //    // You can read a little about it.
+        //    // I read a bit on it.. It said something about putting a private object in a Lock method
+        //    // Or something like that, Idon't remember exactly
+        //    // One second, lemme check something.
+           
+        //    // Okay, so we need to wrap it in a task.
+        //    // Just watch and see the changes
+
+
+        //    // Gratefully, we don't need to do anything like that..;
+        //    // Funny, cuz that's about it.
+        //    // Are you following?
+        //    // Yes
+
+        //    // Awesome. 
+        //    // Give it a run, lemme think for a bit.
+        //    // Ok 
+
+        //    // So I noticed you commented out some of the methods from MainWindow.xaml.cs
+
+        //    // Yes, they are now in the MainView.cs
+        //    // Great. I'll head there.
+
         //}
+
+
+
+        public CountdownTimer(int timeleft)
+        {
+            // Is that it?... 
+            // I can't see any other one, except you want me to clear everything inside the constructo
+            // What about the errors.
+            // Handle them, man. It should be a piece of cake.
+            // I'll be back in 5. Take a careful look at it, and try to figure out why you have those errors.
+
+            // No errors on this end bro... 
+            // I removed the "CountdownTimer = timeleft" line of code 
+
+
+            // I've done it already
+            // it says 'Invalid expression term '=' 
+
+
+            // Great. 
+            // I was wondering what took you so long...
+
+            Hours = timeleft / 3600;
+            Minutes = (timeleft - (Hours * 3600)) / 60;
+            Seconds = timeleft - ((Hours * 3600) - (Minutes * 60));
+        }
 
 
         #endregion
@@ -141,6 +157,7 @@ namespace Power
         // a property changes, this method gets called.
 
         // So we move upwards to the properties available in this class.
+        
         void RaisePropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -156,8 +173,8 @@ namespace Power
                 // Thread.Sleep(1000); // It should work as expected now.
                 await Task.Delay(1000);
 
-                if (Hours > 24 || Minutes > 60 || Seconds > 60)
-                    throw new Exception("You entered a Wrong Value that's beyond the bounds of a timer. ");
+                //if (Hours > 24 || Minutes > 60 || Seconds > 60)
+                //    throw new Exception("The value entered is beyond the bounds of a timer. ");
 
                 if (Hours == 0 && Minutes == 0 && Seconds == 0)
                     break;
@@ -192,8 +209,15 @@ namespace Power
 
                 Console.WriteLine($"{hours}:{minutes}:{seconds}");
             }
+            Audio();
+            await Task.Delay(8000);
 
             finalAction?.Invoke();
+        }
+        void Audio()
+        {
+            SoundPlayer player = new SoundPlayer(Properties.Resources.beepbeep);
+            player.Play();
         }
 
         /// <summary>

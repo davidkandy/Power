@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/power.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sounds/beepbeep.wav")]
 
 

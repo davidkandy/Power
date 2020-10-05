@@ -3,22 +3,30 @@ using System.Windows;
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Power
-
 {
     /// <summary>
     /// Interaction logic for MainView.xaml
     /// </summary>
     public partial class MainView : UserControl
     {
-        [DllImport("PowrProf.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
-        public static extern bool SetSuspendState(bool hiberate, bool forceCritical, bool disableWakeEvent);
+        #region Properties 
+        public event EventHandler<CountdownTimer> TimerStarted;
+        public event EventHandler TimerCompleted;
+        #endregion
+
+        #region Constructors
 
         public MainView()
         {
             InitializeComponent();
         }
+
+        #endregion
+
+        #region Methods
 
         protected async void Shutdown_Click(object sender, RoutedEventArgs e)
         {
@@ -27,9 +35,7 @@ namespace Power
 
             if (dialog.DialogResult == true)
             {
-                // Let's go to MainWindow.xaml.cs
-
-                TimerCompleted?.Invoke(this, dialog.DWTimer);
+                TimerStarted?.Invoke(this, dialog.DWTimer);
                 Action action = new Action(ShutdownComputer);
 
                 // Now once the dialog returns successfully.
@@ -67,7 +73,7 @@ namespace Power
 
             if (dialog.DialogResult == true)
             {
-                TimerCompleted?.Invoke(this, dialog.DWTimer);
+                TimerStarted?.Invoke(this, dialog.DWTimer);
                 Action action = new Action(HibernateComputer);
                 this.DataContext = dialog.DWTimer;
                 await dialog.DWTimer.Start(action);
@@ -81,7 +87,7 @@ namespace Power
 
             if (dialog.DialogResult == true)
             {
-                TimerCompleted?.Invoke(this, dialog.DWTimer);
+                TimerStarted?.Invoke(this, dialog.DWTimer);
                 Action action = new Action(RestartComputer);
                 this.DataContext = dialog.DWTimer;
                 await dialog.DWTimer.Start(action);
@@ -97,39 +103,47 @@ namespace Power
 
             if (dialog.DialogResult == true)
             {
-                TimerCompleted?.Invoke(this, dialog.DWTimer);
+                TimerStarted?.Invoke(this, dialog.DWTimer);
                 Action action = new Action(SleepComputer);
                 this.DataContext = dialog.DWTimer;
                 await dialog.DWTimer.Start(action);
+
             }
 
             //Action action = new Action(() => MessageBox.Show("Timer just went off", "Sleep"));
             //dialog.DWTimer.Start(action);
         }
 
-        public event EventHandler<CountdownTimer> TimerCompleted;
+        [DllImport("PowrProf.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        public static extern bool SetSuspendState(bool hiberate, bool forceCritical, bool disableWakeEvent);
 
         #region Private methods
 
-        static void RestartComputer()
+        void RestartComputer()
         {
             Process.Start("shutdown", "/r /t 0");
+            TimerCompleted?.Invoke(this, EventArgs.Empty);
         }
 
-        static void SleepComputer()
+        void SleepComputer()
         {
+            //SetSuspendState(false, true, true);
             Console.WriteLine(MessageBox.Show("Timer just went off", "Sleep"));
+            TimerCompleted?.Invoke(this, EventArgs.Empty);
         }
-        static void HibernateComputer()
+        void HibernateComputer()
         {
             SetSuspendState(true, true, true);
+            TimerCompleted?.Invoke(this, EventArgs.Empty);
         }
-        static void ShutdownComputer()
+        void ShutdownComputer()
         {
             Process.Start("shutdown", "/s /f /t 0");
+            TimerCompleted?.Invoke(this, EventArgs.Empty);
         }
-
         #endregion
 
+
+        #endregion
     }
 }
