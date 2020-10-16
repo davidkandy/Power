@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Icon="Images/Power.ico"
-        Title="Set Timer" Height="170" Width="310">
+        Title="Set Timer" Height="190" Width="310">
 
     <Grid Background="LightGray">
         <Grid.Resources>
@@ -31,31 +31,7 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0">
-
-			<!--  
-			Give it a run...
-            What am I looking for? cause the combobox was empty and I couldn't choose an option
-			well, that's interesting.
-			Change the ItemSource Binding to Capsules
-			Try again...
-            I'm sending a pic on slack 
-			Actually, that's about right.
-			did you read about binding over the weekend? 
-            Nope, I read other stuff (delegates and events)
-			
-			Cool...
-			You need to make time to read about wpf binding though.
-            Will do...
-			Awesome. Watch what I'm about to do...
-			
-			That should fix it
-            Alright, let me try again
-            It shows now 
-			
-			Awesome. Let's go back there and bring it to life then
-			=> DialogWindow.xaml.cs
-			-->
-			
+            
             <!--Timer and ComboBoxTimers-->
             <StackPanel Margin="5 20 0 5" Orientation="Horizontal" VerticalAlignment="Top">
                 <Label Height="30" FontFamily="Arial Rounded MT Bold" Content="Timer:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
@@ -80,13 +56,13 @@
             </StackPanel>
 
             <!--CheckBox-->
-            <!-- <Grid>
-                     <CheckBox IsChecked="False" x:Name="CheckBox" Margin="5 5 0 5"
-                                   FontFamily="Arial Rounded MT Bold" Content="Do it myself">
-                     </CheckBox>
-                     </Grid>
-                -->
-
+            <!--<Grid>
+                <CheckBox IsChecked="False" x:Name="CheckBox" Margin="5 5 0 5"
+                              FontFamily="Arial Rounded MT Bold" Content="Do it myself">
+                </CheckBox>
+                
+            </Grid>-->
+            
             <!--Time:-->
             <StackPanel IsEnabled="{Binding ElementName=CheckBox, Path=IsChecked}" Orientation="Horizontal" Margin="5 5 0 5">
                 <Label Content="Time:" FontFamily="Arial Rounded MT Bold" Height="25"/>

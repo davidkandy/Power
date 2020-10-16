@@ -19,6 +19,14 @@ namespace Power
             // Now, we get that subscribe to that event fro MainView.
             // You can read about events later :)
 
+
+            // Okay, Great.
+            // What are our goals for today...
+            // To get the large Seconds to convert to HH:MM:SS
+            // 
+
+
+
             MainEl.TimerStarted += (s, e) =>
             {
                 TimerEl.DataContext = e;

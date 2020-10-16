@@ -12,30 +12,11 @@ namespace Power
     public class CountdownTimer : INotifyPropertyChanged
     {
         #region Properties
+
         private int _hours = 0;
         private int _minutes = 0;
         private int _seconds = 0;
 
-        //Lol...copy cat...
-        // Don't you like typing?...
-        // It'll give you good syntax fluency, you know?
-        // I get your point tho
-        // I will start typing
-        // And I'll start deleting my code :)..Lol
-        // Lmao... that won't be necessary
-        // Lol...cool.
-        // You forgot to put the Seconds right.
-        // Awesome.
-        // Can you give it a run..
-        // Yayy.. the TimerView works 
-        // But when the time is up, the TimerView window is still up
-        // Maybe that should be your assignment??...
-        // Find out how to hide it back :shrug:
-        // I'm tired for today :)...
-        // Alright... Thanks bro, today was a good day.. Till wednesday 
-        // Goodnight 
-        // Night man..
-        // Enjoy
 
         public int Hours 
         { 
@@ -65,7 +46,6 @@ namespace Power
                 RaisePropertyChanged("Seconds");
             }
         }
-
 
         // Now, this is the event that comes with INotifyPropertyChanged.
         // Just like the event we created before, it sends notifications
@@ -117,7 +97,7 @@ namespace Power
 
 
 
-        public CountdownTimer(int timeleft)
+        public CountdownTimer(int x)
         {
             // Is that it?... 
             // I can't see any other one, except you want me to clear everything inside the constructo
@@ -136,9 +116,70 @@ namespace Power
             // Great. 
             // I was wondering what took you so long...
 
-            Hours = timeleft / 3600;
-            Minutes = (timeleft - (Hours * 3600)) / 60;
-            Seconds = timeleft - ((Hours * 3600) - (Minutes * 60));
+
+            // Your calculation for seconds is wrong.
+            // You need to fix that...
+            // I hope you're not guessing your way around it...
+            // I don't see how it could be wrong 
+            // + I have calculated it with other variables and it worked in the Power.Countdown app
+            // Well, give it another run, then. 
+            // I didn't make any change 
+            // I know that. Go ahead
+            // Sigh...It's wrong.
+            // Look deeper.
+            // Use a pen.
+            // Alright 
+            // Yeah, I see
+            // You're somehow faster than me. Sure you used a pen?..
+            // Let me use a pen then 
+            // Okay.. I give up, I can't find the problem 
+            // Lol...Please tell me you don't hate Maths...
+            // lol.. I don't hate maths 
+            // Yaaaay!. Cuz you need it to be a programmer. At least an incredible one.
+            // This is an algebraic problem. You're trying to convert seconds to HH:MM:SS.
+            // It shouldn't be too hard :shrug:.
+            // Don't be afraid to get it wrong or think too hard...
+            // It's going to be really important later that you solve problems like these.
+            // I've seen moments when I bump into problems that have Vectors and Scalars, and I'm like :(
+            // Loll.. I never liked those two words and I can't even remeber what they're about, if I ever run into such problems
+            // I'll research on them..... but 
+            // Or figure it out, on your own...lol...
+            // Let me give you a presentation on why I haven't seen the fault 
+
+            /*
+             * Seconds = (timeleft - ((Hours * 3600) - (Minutes * 60)));
+             *              1800   -  (0)      - (30*60)
+             *              1800 - 0 - 1800
+             *              => 0.
+             *              
+             *              Hmmm...
+             *              Maybe 1800 -- 1800
+             *              = 1800 + 1800
+             *              = 3600...
+             *              
+             *              Where's the fault??/
+             *              You're still going to have to recreate that formula though.
+             */
+
+            // Good question, the truth is that's your job
+            // Though, I'll look at it clearly in a bit.
+            // I was trying to get you to recreate the formula first.
+            // Then test is against this one. That's supposed to be some good mental exercise.
+            // Okay, let me see if I can come up with something 
+            // I will need help with this one because I'm unable to see any other way
+
+
+            /*
+             * Also I found a slightly cleaner formula...
+             * S = x mod 60
+             * M = (x / 60) mod 60??...   yeah, this will work, let me implement it  <--- Okay, if the seconds is something like 5500, will it automatically become 31 minutes ??
+             * Lol, nice catch there... Lemme look for a way around that...
+             * H = x / 3600
+            */
+            Hours = x / 3600;
+            Minutes = (x / 60) % 60;
+            Seconds = x % 60;
+             
         }
 
 
@@ -176,6 +217,8 @@ namespace Power
                 //if (Hours > 24 || Minutes > 60 || Seconds > 60)
                 //    throw new Exception("The value entered is beyond the bounds of a timer. ");
 
+                if (Seconds > 60) Seconds = 0;
+
                 if (Hours == 0 && Minutes == 0 && Seconds == 0)
                     break;
 
@@ -199,7 +242,6 @@ namespace Power
                         Seconds = 60;
                     }
                 }
-
                 if (Seconds == 0) Seconds = 60;
                 Seconds--;
 
